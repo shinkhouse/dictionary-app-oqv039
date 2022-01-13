@@ -1,0 +1,8 @@
+{
+  "name": "dictionary-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "c45ccf44"
+}
