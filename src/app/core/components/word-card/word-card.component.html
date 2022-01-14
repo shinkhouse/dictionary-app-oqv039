@@ -1,0 +1,9 @@
+<ion-card routerLink="/definition/{{ word?.word }}">
+    <ion-card-content>
+        <ion-card-title>{{ word.word }}</ion-card-title>
+        <ion-card-subtitle>{{ word?.pronunciation?.all }}</ion-card-subtitle>
+        <ion-card-subtitle *ngIf="word?.syllables?.list.length > 0">
+            {{ getSyllablesString(word?.syllables?.list) }}
+        </ion-card-subtitle>
+    </ion-card-content>
+</ion-card>

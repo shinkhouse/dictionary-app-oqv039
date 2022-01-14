@@ -21,7 +21,8 @@ export class HomePage implements OnInit {
     public searchQuery: any;
     searchQueryChanged = new Subject<string>();
     public wordDefinition: WordSearchDefinition;
-    public savedWords = ['word1', 'word2', 'wordword3', 'word4'];
+    public savedWords = [];
+    public recentWords = [];
 
     public featureCardSlideOptions = {
         keyboard: true,
@@ -29,6 +30,9 @@ export class HomePage implements OnInit {
 
     public savedWordsSlideOptions = {
         slidesPerView: 1.7,
+    };
+    public recentWordsSlideOptions = {
+        slidesPerView: 1.4,
     };
 
     constructor(
@@ -44,12 +48,19 @@ export class HomePage implements OnInit {
         });
         this.getRandomWord();
         this.getSavedWords();
+        this.getRecentWords();
     }
 
     async getSavedWords() {
         const savedWords = await this.storage.get('savedWords');
         console.log('savedWords', savedWords);
         this.savedWords = JSON.parse(savedWords);
+    }
+
+    async getRecentWords() {
+        const recentWords = await this.storage.get('recentWords');
+        console.log('recentWords', recentWords);
+        this.recentWords = JSON.parse(recentWords);
     }
 
     queryChanged() {

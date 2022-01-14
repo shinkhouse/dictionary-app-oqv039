@@ -43,7 +43,7 @@ ion-card.feature-card {
 }
 
 ion-slides.saved-words-slides {
-    ion-card {
+    app-word-card {
         width: 100%;
         height: 120px;
         margin-right: 16px;
