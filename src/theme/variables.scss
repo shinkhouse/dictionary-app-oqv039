@@ -74,6 +74,8 @@
     --ion-color-light-contrast-rgb: 0, 0, 0;
     --ion-color-light-shade: #d7d8da;
     --ion-color-light-tint: #f5f6f9;
+
+    --border-color: rgba(255,255,255,.12);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -195,30 +197,4 @@
         --ion-toolbar-background: var(--ion-color-step-150);
         --ion-toolbar-border-color: var(--ion-color-step-250);
     }
-
-    /* move styles below to separate component related sheets */
-
-    ion-toolbar {
-        --ion-font-family: 'Roboto Slab';
-        input {
-            --ion-font-family: 'Roboto';
-        }
-    }
-
-    ion-card {
-      margin: 0px;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: 'Roboto Slab';
-    }
-    /*
-   * Material Design Dark Theme
-   * -------------------------------------------
-   */
 }
