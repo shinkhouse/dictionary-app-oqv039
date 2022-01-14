@@ -6,6 +6,7 @@ import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swi
 import { IonSlides, IonicSlides } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { StorageService } from '../core/services/storage.service';
 
 SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 
@@ -27,16 +28,28 @@ export class HomePage implements OnInit {
     };
 
     public savedWordsSlideOptions = {
-        slidesPerView: 2.5,
+        slidesPerView: 1.7,
     };
 
-    constructor(private activatedRoute: ActivatedRoute, private router: Router, private dictionary: DictionaryService) {}
+    constructor(
+        private activatedRoute: ActivatedRoute,
+        private router: Router,
+        private dictionary: DictionaryService,
+        private storage: StorageService
+    ) {}
 
-    ngOnInit() {
+    async ngOnInit() {
         this.searchQueryChanged.pipe(debounceTime(1000)).subscribe(() => {
             console.log(this.searchQuery);
         });
-        // this.getRandomWord();
+        this.getRandomWord();
+        this.getSavedWords();
+    }
+
+    async getSavedWords() {
+        const savedWords = await this.storage.get('savedWords');
+        console.log('savedWords', savedWords);
+        this.savedWords = JSON.parse(savedWords);
     }
 
     queryChanged() {
