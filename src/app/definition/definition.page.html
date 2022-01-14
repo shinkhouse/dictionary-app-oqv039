@@ -8,7 +8,7 @@
 </ion-header>
 <ion-content [fullscreen]="true">
     <div class="container">
-        <ion-card>
+        <ion-card *ngIf="wordDefinition?.word">
             <ion-card-header>
                 <div fxLayout="row">
                     <ion-card-title>{{wordDefinition?.word}}</ion-card-title>
@@ -26,6 +26,30 @@
                     <ion-card-subtitle>{{wordDefinition?.pronunciation?.all}}</ion-card-subtitle>
                     <ion-card-subtitle *ngIf="wordDefinition?.syllables?.list.length > 0">
                         {{getSyllablesString(wordDefinition?.syllables?.list)}}
+                    </ion-card-subtitle>
+                </div>
+            </ion-card-header>
+        </ion-card>
+        <ion-card *ngIf="!wordDefinition?.word">
+            <ion-card-header>
+                <div fxLayout="row">
+                    <ion-card-title fxFlex>
+                      <ion-skeleton-text animated style="width: 100%; height: 20px"></ion-skeleton-text>
+                    </ion-card-title>
+                    <div fxFlex></div>
+
+                    <ion-button size="small" fill="clear">
+                        <ion-icon slot="icon-only" name="ellipse"></ion-icon>
+                    </ion-button>
+                    <ion-button size="small" fill="clear">
+                        <ion-icon slot="icon-only" name="ellipse"></ion-icon>
+                    </ion-button>
+                </div>
+
+                <div fxLayout="column">
+                    <ion-card-subtitle><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></ion-card-subtitle>
+                    <ion-card-subtitle>
+                        <ion-skeleton-text animated style="width: 30%;"></ion-skeleton-text>
                     </ion-card-subtitle>
                 </div>
             </ion-card-header>
@@ -54,6 +78,47 @@
                     <div fxLayout="column" *ngIf="result?.examples?.length > 0">
                         <h4>Example</h4>
                         <p *ngFor="let example of result?.examples">{{example}}</p>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div class="definitions" *ngIf="!wordDefinition">
+            <h3>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </h3>
+            <ion-card>
+                <ion-card-content fxLayout="column" fxLayoutGap="16px">
+                    <div fxLayout="column">
+                        <h4><ion-skeleton-text animated style="width: 60%"></ion-skeleton-text></h4>
+                        <div>
+                            <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+                        </div>
+                    </div>
+                    <div fxLayout="column">
+                        <h4><ion-skeleton-text animated style="width: 60%"></ion-skeleton-text></h4>
+                        <p><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></p>
+                    </div>
+                    <div fxLayout="column">
+                        <h4><ion-skeleton-text animated style="width: 60%"></ion-skeleton-text></h4>
+                        <p><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></p>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+            <ion-card>
+                <ion-card-content fxLayout="column" fxLayoutGap="16px">
+                    <div fxLayout="column">
+                        <h4><ion-skeleton-text animated style="width: 60%"></ion-skeleton-text></h4>
+                        <div>
+                            <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+                        </div>
+                    </div>
+                    <div fxLayout="column">
+                        <h4><ion-skeleton-text animated style="width: 60%"></ion-skeleton-text></h4>
+                        <p><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></p>
+                    </div>
+                    <div fxLayout="column">
+                        <h4><ion-skeleton-text animated style="width: 60%"></ion-skeleton-text></h4>
+                        <p><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></p>
                     </div>
                 </ion-card-content>
             </ion-card>
