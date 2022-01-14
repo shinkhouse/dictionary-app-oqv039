@@ -8,6 +8,7 @@ import { FolderPageRoutingModule } from './folder-routing.module';
 
 import { FolderPage } from './folder.page';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SearchBarModule } from '../core/components/search-bar/search-bar.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FormsModule,
     IonicModule,
     FolderPageRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    SearchBarModule
   ],
   declarations: [FolderPage]
 })

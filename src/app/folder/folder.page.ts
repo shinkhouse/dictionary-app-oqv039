@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { WordDefinition } from '../core/models/dictionary.model';
+import { DictionaryService } from '../core/services/dictionary.service';
 
 @Component({
   selector: 'app-folder',
@@ -7,12 +9,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./folder.page.scss'],
 })
 export class FolderPage implements OnInit {
-  public folder: string;
+  public wordDefinition: WordDefinition;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private dictionary: DictionaryService) { }
 
   ngOnInit() {
-    this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+    this.getRandomWord();
   }
 
+  getRandomWord() {
+    this.dictionary.getRandomWordFromDictionary().subscribe((res: WordDefinition) => {
+        this.wordDefinition = res;
+    });
+  }
 }
