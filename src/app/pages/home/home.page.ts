@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { WordSearchDefinition } from '../core/models/dictionary.model';
-import { DictionaryService } from '../core/services/dictionary.service';
+import { WordSearchDefinition } from '../../core/models/dictionary.model';
+import { DictionaryService } from '../../core/services/dictionary.service';
 import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
 import { IonSlides, IonicSlides } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { StorageService } from '../core/services/storage.service';
+import { StorageService } from '../../core/services/storage.service';
 
 SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 

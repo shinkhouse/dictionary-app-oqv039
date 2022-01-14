@@ -8,9 +8,9 @@ import { FolderPageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { SearchBarModule } from '../core/components/search-bar/search-bar.module';
+import { SearchBarModule } from '../../core/components/search-bar/search-bar.module';
 import { SwiperModule } from 'swiper/angular';
-import { StorageService } from '../core/services/storage.service';
+import { StorageService } from '../../core/services/storage.service';
 @NgModule({
     imports: [CommonModule, FormsModule, IonicModule, FolderPageRoutingModule, FlexLayoutModule, SearchBarModule, SwiperModule],
     declarations: [HomePage],
