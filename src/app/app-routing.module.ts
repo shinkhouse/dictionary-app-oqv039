@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'definition',
+    path: 'definition/:word',
     loadChildren: () => import('./definition/definition.module').then( m => m.DefinitionPageModule)
   }
 ];
