@@ -14,12 +14,17 @@ export class HomePage implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private dictionary: DictionaryService) { }
 
   ngOnInit() {
-    this.getRandomWord();
+    // this.getRandomWord();
   }
 
   getRandomWord() {
     this.dictionary.getRandomWordFromDictionary().subscribe((res: WordDefinition) => {
         this.wordDefinition = res;
+        console.log(this.wordDefinition.syllables);
     });
+  }
+
+  getSyllablesString(syllables): string {
+    return syllables.join(' • ');
   }
 }

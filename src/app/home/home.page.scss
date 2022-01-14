@@ -1,8 +1,32 @@
 ion-menu-button {
-  color: var(--ion-color-primary);
+    color: var(--ion-color-primary);
 }
 .container {
-  padding: 16px;
+    padding: 16px;
+}
+
+ion-card.random-word {
+    text-align: center;
+    ion-card-title {
+        font-family: 'Roboto Slab';
+    }
+}
+
+ion-card.feature-card {
+    --background: #003e84;
+    h2 {
+        color: white;
+    }
+    p {
+        color: rgba(255, 255, 255, 0.54);
+    }
+}
+
+.definition-card {
+  --background: #484964;
+    p.definition {
+      color: white;
+    }
 }
 
 // #container {

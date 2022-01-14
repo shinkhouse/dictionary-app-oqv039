@@ -18,15 +18,29 @@
 
 <ion-content [fullscreen]="true">
     <div class="container">
-        <ion-card>
+        <ion-card class="feature-card">
+            <ion-card-content>
+                <h2>Save words for later</h2>
+                <p>Search any English word to see detailed meanings</p>
+            </ion-card-content>
+        </ion-card>
+        <h1>Random Word</h1>
+        <ion-card class="random-word">
             <ion-card-header>
-                <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-                <ion-card-title>Card Title</ion-card-title>
+                <ion-card-title>{{wordDefinition?.word}}</ion-card-title>
+                <ion-card-subtitle>{{wordDefinition?.pronunciation?.all}}</ion-card-subtitle>
+                <ion-card-subtitle *ngIf="wordDefinition?.syllables?.list.length > 0">
+                    {{getSyllablesString(wordDefinition?.syllables?.list)}}
+                </ion-card-subtitle>
             </ion-card-header>
 
             <ion-card-content>
-                Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods.
-                Wash your spirit clean.
+                <ion-card class="definition-card">
+                    <ion-card-content *ngFor="let definition of wordDefinition?.results; let i = index">
+                        <p>Meaning {{i + 1}} - {{definition.partOfSpeech}}</p>
+                        <p class="definition">{{definition.definition}}</p>
+                    </ion-card-content>
+                </ion-card>
             </ion-card-content>
         </ion-card>
     </div>
