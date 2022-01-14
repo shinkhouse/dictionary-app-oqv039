@@ -9,7 +9,7 @@ import { FolderPageRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SearchBarModule } from '../core/components/search-bar/search-bar.module';
-
+import { SwiperModule } from 'swiper/angular';
 @NgModule({
   imports: [
     CommonModule,
@@ -17,7 +17,8 @@ import { SearchBarModule } from '../core/components/search-bar/search-bar.module
     IonicModule,
     FolderPageRoutingModule,
     FlexLayoutModule,
-    SearchBarModule
+    SearchBarModule,
+    SwiperModule
   ],
   declarations: [HomePage]
 })
