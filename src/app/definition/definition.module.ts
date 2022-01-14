@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DefinitionPageRoutingModule } from './definition-routing.module';
 
 import { DefinitionPage } from './definition.page';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DefinitionPageRoutingModule
+    DefinitionPageRoutingModule,
+    FlexLayoutModule
   ],
   declarations: [DefinitionPage]
 })

@@ -3,9 +3,55 @@
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title>Word</ion-title>
+        <ion-title>Word Search</ion-title>
     </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content [fullscreen]="true">
+    <div class="container">
+        <ion-card>
+            <ion-card-header>
+                <div fxLayout="row">
+                    <ion-card-title>{{wordDefinition?.word}}</ion-card-title>
+                    <div fxFlex></div>
 
+                    <ion-button (click)="toggleFavoriteWord()" size="small" fill="clear">
+                        <ion-icon slot="icon-only" [name]="favoriteWord ? 'heart' : 'heart-outline'"></ion-icon>
+                    </ion-button>
+                    <ion-button size="small" fill="clear">
+                        <ion-icon slot="icon-only" name="share-outline"></ion-icon>
+                    </ion-button>
+                </div>
+
+                <div fxLayout="column">
+                    <ion-card-subtitle>{{wordDefinition?.pronunciation?.all}}</ion-card-subtitle>
+                    <ion-card-subtitle *ngIf="wordDefinition?.syllables?.list.length > 0">
+                        {{getSyllablesString(wordDefinition?.syllables?.list)}}
+                    </ion-card-subtitle>
+                </div>
+            </ion-card-header>
+        </ion-card>
+        <div class="definitions" *ngFor="let result of wordDefinition?.results; let i = index">
+            <h3>Definition #{{i + 1}} • <i>{{result.partOfSpeech}}</i></h3>
+            <ion-card>
+                <ion-card-content>
+                    <div fxLayout="column">
+                        <h4>Synonyms</h4>
+                        <div>
+                            <ion-chip outline color="primary" routerLink="/definition/{{synonym}}" *ngFor="let synonym of result?.synonyms">
+                                <ion-label>{{synonym}}</ion-label>
+                            </ion-chip>
+                        </div>
+                    </div>
+                    <div fxLayout="column">
+                        <h4>Definition</h4>
+                        <p>{{result?.definition}}</p>
+                    </div>
+                    <div fxLayout="column" *ngIf="result?.examples?.length > 0">
+                        <h4>Example</h4>
+                        <p *ngFor="let example of result?.examples">{{example}}</p>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+        </div>
+    </div>
 </ion-content>
