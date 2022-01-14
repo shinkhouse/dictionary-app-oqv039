@@ -1,170 +1,118 @@
-
-
-:host-context(.ios) {
-
-  .search-bar {
+.search-bar {
     --icon-size: 22px;
     --search-bar-height: #{8px * 4.5};
     background-color: #494964;
     border-radius: 10px;
 
-      input {
-      --padding-end: #{8px * 1.5};
-      --padding-start: #{8px * 5.5};
+    input {
+        --padding-end: #{8px * 1.5};
+        --padding-start: #{8px * 5.5};
     }
 
     button,
     .signifier {
-      --height: #{8px * 4.25};
-      --width: #{8px * 4.25};
+        --height: #{8px * 4.25};
+        --width: #{8px * 4.25};
     }
-  }
 }
 
-:host-context(.ios .ion-color-light) {
+.search-bar {
+    margin-top: env(safe-area-inset-top);
 
-  .search-bar {
-      margin-top: env(safe-area-inset-top);
-
-
-      .clear {
-      color: var(--ion-color-medium);
+    .clear {
+        color: var(--ion-color-medium);
     }
-  }
+}
 
-  .ios-cancel {
+.ios-cancel {
     color: var(--ion-color-primary);
-  }
 }
 
 :host-context(ion-toolbar:last-child:not(:only-child)) {
-
-  .container {
-    //padding-top: 0;
-  }
-}
-
-:host-context(.md) {
-
-  .search-bar {
-
-    &.light {
-          border: 1px solid rgba(0,0,0, 0.12);
+    .container {
+        //padding-top: 0;
     }
-    border: 1px solid rgba(var(--ion-color-primary-contrast-rgb),.12);
-    border-radius: 6px;
-    transition: border-color 400ms cubic-bezier(.25,.8,.25,1);
-
-    input {
-      --padding-start: #{8px * 8};
-    }
-
-    button,
-    .signifier {
-      --height: #{8px * 5};
-      --width: #{8px * 5};
-    }
-
-    .signifier,
-    .md-cancel {
-      --margin-start: #{8px * .5};
-    }
-
-    .clear {
-      --margin-end: #{8px * .5};
-    }
-  }
-
-  .container {
-
-    &.focused {
-
-      .search-bar {
-        //border-color: rgba(var(--ion-color-primary-contrast-rgb),.5);
-      }
-    }
-  }
 }
 
 .container,
 .search-bar {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
 }
 
 .container {
-  padding: 8px;
-  width: 100%;
+    padding: 8px;
+    width: 100%;
 
-  input,
-  button,
-  .signifier {
-    margin: var(--margin-top, 0) var(--margin-end, 0) var(--margin-bottom, 0) var(--margin-start, 0);
-    padding: var(--padding-top, 0) var(--padding-end, 0) var(--padding-bottom, 0) var(--padding-start, 0);
-  }
+    input,
+    button,
+    .signifier {
+        margin: var(--margin-top, 0) var(--margin-end, 0) var(--margin-bottom, 0) var(--margin-start, 0);
+        padding: var(--padding-top, 0) var(--padding-end, 0) var(--padding-bottom, 0) var(--padding-start, 0);
+    }
 
-  input,
-  button {
-    background-color: transparent;
-    border: none;
-    color: inherit;
-    outline: none;
-  }
+    input,
+    button {
+        background-color: transparent;
+        border: none;
+        color: inherit;
+        outline: none;
+    }
 
-  .ios-cancel {
-    font-size: 16px;
-    font-weight: 500;
-    padding: 8px 0 8px 10px;
-    white-space: nowrap;
-  }
+    .ios-cancel {
+        font-size: 16px;
+        font-weight: 500;
+        padding: 8px 0 8px 10px;
+        white-space: nowrap;
+    }
 }
 
 .search-bar {
-  --search-bar-height: #{8px * 5.25};
-  --icon-size: 24px;
-  flex: 1 1 auto;
-  height: var(--search-bar-height);
-  position: relative;
-
-  form {
-    display: contents;
-  }
-
-  ion-icon {
-    font-size: var(--icon-size);
-  }
-
-  input {
+    --search-bar-height: #{8px * 5.25};
+    --icon-size: 24px;
     flex: 1 1 auto;
-    height: 100%;
-  }
+    height: var(--search-bar-height);
+    position: relative;
 
-  button,
-  .signifier {
-    align-items: center;
-    color: inherit;
-    display: flex;
-    flex-shrink: 0;
-    height: var(--height);
-    justify-content: center;
-    width: var(--width);
+    form {
+        display: contents;
+    }
 
     ion-icon {
-      color: inherit;
+        font-size: var(--icon-size);
     }
-  }
 
-  .signifier,
-  .md-cancel {
-    --margin-bottom: auto;
-    --margin-top: auto;
-    bottom: 0;
-    position: absolute;
-    top: 0;
-  }
+    input {
+        flex: 1 1 auto;
+        height: 100%;
+    }
 
-  .signifier {
-    opacity: .7;
-  }
+    button,
+    .signifier {
+        align-items: center;
+        color: inherit;
+        display: flex;
+        flex-shrink: 0;
+        height: var(--height);
+        justify-content: center;
+        width: var(--width);
+
+        ion-icon {
+            color: inherit;
+        }
+    }
+
+    .signifier,
+    .md-cancel {
+        --margin-bottom: auto;
+        --margin-top: auto;
+        bottom: 0;
+        position: absolute;
+        top: 0;
+    }
+
+    .signifier {
+        opacity: 0.7;
+    }
 }
