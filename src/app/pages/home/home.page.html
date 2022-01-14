@@ -57,7 +57,13 @@
                 </ion-card>
             </ion-slide>
         </ion-slides>
-        <h2>Random Word</h2>
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <h2>Random Word</h2>
+            <div fxFlex></div>
+            <ion-button (click)="getRandomWord()" size="small" fill="clear">
+                        <ion-icon slot="icon-only" name="refresh"></ion-icon>
+                    </ion-button>
+        </div>
         <ion-card *ngIf="wordDefinition" routerLink="/definition/{{wordDefinition?.word}}" class="random-word">
             <ion-card-header>
                 <ion-card-title>{{wordDefinition?.word}}</ion-card-title>
