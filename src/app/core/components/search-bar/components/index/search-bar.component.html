@@ -1,0 +1,19 @@
+<div class="container" [class.focused]="focused">
+    <div class="search-bar" [class.light]="borderColor === 'dark'">
+        <button *ngIf="!platform.is('ios') && showFocus()" (click)="cancelSearch()" class="md-cancel">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>
+        <div *ngIf="!showFocus() || platform.is('ios')" class="signifier">
+            <ion-icon name="search"></ion-icon>
+        </div>
+        <form action="." #searchForm="ngForm" (ngSubmit)="handleSubmit()">
+            <input [(ngModel)]="query" [value]="value" [type]="type"
+                [placeholder]="placeholder || ('Search')"
+                (ngModelChange)="propagateChange(query);queryChange.emit(query)" (focus)="setFocusState()"
+                (blur)="setBlurTimeout()" #searchInput name="searchQuery" [ngStyle]="{'backgroundColor': bcgColor}">
+        </form>
+        <button class="clear" *ngIf="showFocus()" (click)="clearInput()">
+            <ion-icon [name]="platform.is('ios') ? 'close-circle' : 'close'"></ion-icon>
+        </button>
+    </div>
+</div>
