@@ -4,11 +4,11 @@ import { WordDefinition } from '../core/models/dictionary.model';
 import { DictionaryService } from '../core/services/dictionary.service';
 
 @Component({
-  selector: 'app-folder',
-  templateUrl: './folder.page.html',
-  styleUrls: ['./folder.page.scss'],
+  selector: 'app-home',
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
-export class FolderPage implements OnInit {
+export class HomePage implements OnInit {
   public wordDefinition: WordDefinition;
 
   constructor(private activatedRoute: ActivatedRoute, private dictionary: DictionaryService) { }
