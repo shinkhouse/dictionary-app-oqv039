@@ -36,7 +36,7 @@ export class HomePage implements OnInit {
         this.searchQueryChanged.pipe(debounceTime(1000)).subscribe(() => {
             console.log(this.searchQuery);
         });
-        this.getRandomWord();
+        // this.getRandomWord();
     }
 
     queryChanged() {

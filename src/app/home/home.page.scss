@@ -23,6 +23,16 @@ ion-card.feature-card {
     p {
         color: rgba(255, 255, 255, 0.54);
     }
+
+    .feature-image-container {
+          height: 100%;
+          width: 250px;
+          position: relative;
+
+          img {
+            margin-top: -30px;
+          }
+    }
 }
 
 .definition-card {
