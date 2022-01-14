@@ -9,11 +9,15 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'definition/:word',
-    loadChildren: () => import('./definition/definition.module').then( m => m.DefinitionPageModule)
+    loadChildren: () => import('./pages/definition/definition.module').then( m => m.DefinitionPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
   }
 ];
 
