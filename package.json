@@ -1,8 +1,8 @@
 {
   "name": "dictionary-app",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Samuel Hinkhouse",
+  "homepage": "https://www.samuelhinkhouse.com",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
