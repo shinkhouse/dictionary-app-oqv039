@@ -18,6 +18,14 @@
 
 <ion-content [fullscreen]="true">
     <div class="container">
+        <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+        </ion-refresher>
         <ion-slides
             [pager]="true"
             [scrollbar]="true"
@@ -61,8 +69,8 @@
             <h3>Random Word</h3>
             <div fxFlex></div>
             <ion-button (click)="getRandomWord()" size="small" fill="clear">
-                        <ion-icon slot="icon-only" name="refresh"></ion-icon>
-                    </ion-button>
+                <ion-icon slot="icon-only" name="refresh"></ion-icon>
+            </ion-button>
         </div>
         <ion-card *ngIf="wordDefinition" routerLink="/definition/{{wordDefinition?.word}}" class="random-word">
             <ion-card-header>
@@ -111,7 +119,7 @@
         </ion-slides>
         <h3>Recent Words</h3>
         <ion-text color="medium">
-            <p *ngIf="savedWords?.length === 0">Save a word by searching for it and clicking on the heart to save.</p>
+            <p *ngIf="savedWords?.length === 0">Search for a word to see your most recent words.</p>
         </ion-text>
         <ion-slides *ngIf="savedWords" class="saved-words-slides" [options]="recentWordsSlideOptions" #recentWordsSlidesRef>
             <ion-slide *ngFor="let word of recentWords">

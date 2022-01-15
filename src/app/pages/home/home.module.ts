@@ -12,6 +12,7 @@ import { SearchBarModule } from '../../core/components/search-bar/search-bar.mod
 import { SwiperModule } from 'swiper/angular';
 import { StorageService } from '../../core/services/storage.service';
 import { WordCardModule } from 'src/app/core/components/word-card/word-card.module';
+import { RouterModule } from '@angular/router';
 @NgModule({
     imports: [
         CommonModule,
@@ -22,6 +23,7 @@ import { WordCardModule } from 'src/app/core/components/word-card/word-card.modu
         SearchBarModule,
         SwiperModule,
         WordCardModule,
+        RouterModule
     ],
     declarations: [HomePage],
     providers: [StorageService],

@@ -51,6 +51,17 @@ export class HomePage implements OnInit {
         this.getRecentWords();
     }
 
+    doRefresh(ev) {
+        this.getRandomWord();
+        this.getSavedWords();
+        this.getRecentWords();
+
+        setTimeout(() => {
+            console.log('Async operation has ended');
+            ev.target.complete();
+        }, 200);
+    }
+
     async getSavedWords() {
         const savedWords = await this.storage.get('savedWords');
         console.log('savedWords', savedWords);
