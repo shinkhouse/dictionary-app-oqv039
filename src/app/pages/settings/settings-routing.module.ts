@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: SettingsPage
+  },
+  {
+    path: 'recent',
+    loadChildren: () => import('./pages/recent/recent.module').then( m => m.RecentPageModule)
+  },
+  {
+    path: 'favorites',
+    loadChildren: () => import('./pages/favorites/favorites.module').then( m => m.FavoritesPageModule)
   }
 ];
 

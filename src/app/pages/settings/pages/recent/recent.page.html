@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Recent Words</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="removeAll()" size="small" fill="clear">
+                Clear
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="container">
+        <ion-card>
+            <ion-card-content>
+                <ion-list lines="full">
+                    <ion-item-sliding *ngFor="let word of recentWords">
+                        <ion-item>
+                            <ion-label>{{word.word}}</ion-label>
+                        </ion-item>
+                        <ion-item-options side="end">
+                            <ion-item-option color="danger" (click)="removeItem(word)">Remove</ion-item-option>
+                        </ion-item-options>
+                    </ion-item-sliding>
+                </ion-list>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

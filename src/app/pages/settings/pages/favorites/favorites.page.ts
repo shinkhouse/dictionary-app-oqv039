@@ -4,19 +4,17 @@ import { DictionaryService } from 'src/app/core/services/dictionary.service';
 import { StorageService } from 'src/app/core/services/storage.service';
 
 @Component({
-    selector: 'app-settings',
-    templateUrl: './settings.page.html',
-    styleUrls: ['./settings.page.scss'],
+    selector: 'app-favorites',
+    templateUrl: './favorites.page.html',
+    styleUrls: ['./favorites.page.scss'],
 })
-export class SettingsPage implements OnInit {
+export class FavoritesPage implements OnInit {
     public savedWords: WordSearchDefinition[] = [];
-    public recentWords: WordSearchDefinition[] = [];
 
     constructor(private dictionary: DictionaryService, private storage: StorageService) {}
 
     ngOnInit() {
-      this.getRecentWords();
-      this.getSavedWords();
+        this.getSavedWords();
     }
 
     async getSavedWords() {
@@ -25,9 +23,14 @@ export class SettingsPage implements OnInit {
         this.savedWords = JSON.parse(savedWords);
     }
 
-    async getRecentWords() {
-        const recentWords = await this.storage.get('recentWords');
-        console.log('recentWords', recentWords);
-        this.recentWords = JSON.parse(recentWords);
+    removeItem(word) {
+        const savedWords = this.savedWords.filter((wordDef) => wordDef.word !== word.word);
+        this.storage.set('savedWords', JSON.stringify(savedWords));
+        this.savedWords = savedWords;
+    }
+
+    removeAll() {
+      this.storage.set('savedWords', JSON.stringify([]));
+      this.savedWords = [];
     }
 }
