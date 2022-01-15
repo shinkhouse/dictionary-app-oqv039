@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WordCardComponent } from './word-card.component';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [WordCardComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ], exports: [WordCardComponent]
 })
 export class WordCardModule { }
