@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { Drivers } from '@ionic/storage';
 
 @NgModule({
     declarations: [AppComponent],
@@ -18,7 +20,11 @@ import { HttpClientModule } from '@angular/common/http';
         AppRoutingModule,
         FlexLayoutModule,
         HttpClientModule,
-        RouterModule
+        RouterModule,
+        IonicStorageModule.forRoot({
+            name: '__dictionarydb',
+            driverOrder: [Drivers.IndexedDB, Drivers.LocalStorage],
+        }),
     ],
     providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
     bootstrap: [AppComponent],

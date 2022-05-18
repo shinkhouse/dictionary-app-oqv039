@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { Injectable } from '@angular/core';
 
 import { Storage } from '@ionic/storage-angular';
@@ -6,24 +7,30 @@ import { Storage } from '@ionic/storage-angular';
     providedIn: 'root',
 })
 export class StorageService {
-    constructor() {}
+    private _storage: Storage | null = null;
+    constructor(private storage: Storage) {
+        this.init();
+    }
 
     // Create and expose methods that users of this service can
     // call, for example:
+    async init() {
+        const storage = await this.storage.create();
+        this._storage = storage;
+    }
     public set(key: string, value: any) {
         console.log(key, value);
-        localStorage?.setItem(key, value);
+        this._storage?.set(key, value);
     }
 
     public async get(key: string) {
-        return await localStorage?.getItem(key);
+        return await this.storage.get(key);
     }
 
     public async clear() {
-        return await localStorage?.clear();
+        return await this.storage.clear();
     }
-
     public async getAllKeys() {
-        return await localStorage?.keys;
+        return await this.storage.keys();
     }
 }
