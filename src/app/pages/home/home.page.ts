@@ -19,6 +19,7 @@ export class HomePage implements OnInit {
     @ViewChild('featureSlidesRef', { static: true }) featureSlidesRef: IonSlides;
     @ViewChild('savedWordsSlidesRef', { static: true }) savedWordsSlidesRef: IonSlides;
     public searchQuery: any;
+    searchActive: boolean;
     searchQueryChanged = new Subject<string>();
     public wordDefinition: WordSearchDefinition;
     public savedWords = [];

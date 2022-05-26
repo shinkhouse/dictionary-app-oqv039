@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WordCardComponent } from './word-card.component';
 import { RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 
 
@@ -9,7 +10,8 @@ import { RouterModule } from '@angular/router';
   declarations: [WordCardComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    IonicModule
   ], exports: [WordCardComponent]
 })
 export class WordCardModule { }

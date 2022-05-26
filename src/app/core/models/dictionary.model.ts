@@ -2,7 +2,7 @@ export interface WordSearchDefinition {
     word?: string;
     results?: Result[];
     syllables?: Syllables;
-    pronunciation?: Pronunciation | string;
+    pronunciation?: Pronunciation | string | any;
     frequency?: number;
 }
 
